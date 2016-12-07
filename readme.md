@@ -96,7 +96,7 @@ public boolean isReference() { return true; }
 
 }
 </pre></td>
-<td><pre lang=swift>
+<td><pre lang=java>
 // Wrong placement of opening brace
 void method()
 {
