@@ -310,15 +310,34 @@ public class MyGenericClass<T> implements Comparable<T>,
 </table>
 
 ### Wrapping Method Declarations and Expressions
-TBD
+Method declarations can be formatted by listing the arguments vertically
 
 <table>
 <tr><th>SFW</th><th>NSFW</th></tr>
 <tr>
 <td><pre lang=java>
+int someMethod(String aString,
+               List<Integer> aList,
+               Map<String, String> aMap,
+               int anInt,
+               long aLong,
+               Set<Number> aSet,
+               double aDouble) {
+    …
+}
 
 </pre></td>
 <td><pre lang=java>
+// If aligning the parameters vertically, don't put two
+// parameters on one line
+int someMethod(String aString,
+               List<Integer> aList,
+               Map<String, String> aMap,
+               int anInt, long aLong,
+               Set<Number> aSet,
+               double aDouble) {
+    …
+}
 
 </pre></td>
 </tr>
@@ -400,6 +419,4 @@ TBD
 
 ### Constants 
 TBD
-
-
 
