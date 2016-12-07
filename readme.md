@@ -287,7 +287,6 @@ if (condition) { return expression; }
 <tr><th>SFW</th><th>NSFW</th></tr>
 <tr>
 <td><pre lang=java>
-```java
 public class MyGenericClass<T, S>
         extends HashMap<T, S>
         implements Comparable<T> {
@@ -298,15 +297,12 @@ public class AnotherClass<K, R> implements Collector<T extends K,
                                                      List<R>> {
     …
 }
-```
 </pre></td>
 <td><pre lang=java>
-```java
 public class MyGenericClass<T> implements Comparable<T>,
         Predicate<T> {
     …
 }
-```
 </pre></td>
 </tr>
 </table>
