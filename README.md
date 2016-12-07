@@ -1,2 +1,2 @@
 # JavaStyleGuide
-The official Swift language style guide for Canecom.
+The official Java language style guide for Canecom.
