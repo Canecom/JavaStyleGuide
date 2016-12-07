@@ -61,10 +61,13 @@
 
 -   There should be a new line in front of a closing brace unless the block is empty
 
--   Braces are recommended even where the language makes them optional, such as single-line if and loop bodies.
-    o   If a block spans more than one line (including comments) it must have braces.
-    o   If one of the blocks in a if / else statement has braces, the other block must too.
-    o   If the block comes last in an enclosing block, it must have braces.
+-   Braces are recommended even where the language makes them optional, such as single-line if and loop bodies:
+
+    -   If a block spans more than one line (including comments) it must have braces.
+    
+    -   If one of the blocks in a if / else statement has braces, the other block must too.
+    
+    -   If the block comes last in an enclosing block, it must have braces.
     
 -   the else, catch and the while keyword in do…while loops go on the same line as the closing brace of the preceding block.
 
@@ -133,29 +136,253 @@ for (int i = 0; i < size; i++) { sum += data[i]; }
 
 
 ### WhiteSpaces
-TBD
+-	Use 4 spaces for tabs.
+-	Prefer indent using: Tabs
+-	Tab width: 4
+-	Indent width: 4
+-	Tab key: Indents in leading whitespace
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+switch (var) {
+    case TWO:
+        setChoice("two");
+        break;
+    case THREE:
+        setChoice("three");
+        break;
+    default:
+        throw new IllegalArgumentException();
+}
+</pre></td>
+
+<td><pre lang=java>
+switch (var) {
+case TWO:
+    setChoice("two");
+    break;
+case THREE:
+    setChoice("three");
+    break;
+default:
+    throw new IllegalArgumentException();
+}
+</pre></td>
+</tr>
+</table>
+
+-	A single space should be used:
+
+	-	To separate keywords from neighboring opening or closing brackets and braces
+	
+	-	Before and after all binary operators and operator like symbols such as arrows in lambda expressions and the colon in enhanced for loops (but not before the colon of a label)
+
+ -	After // that starts a comment.
+
+ -	After commas separating arguments and semicolons separating the parts of a for loop.
+
+ -	After the closing parenthesis of a cast.
+
+-	In variable declarations it is not recommended to align types and variables.
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+int someInt;
+String myString;
+char aChar;
+long sixtyfourFlags
+
+if (isFlagSet(GO)) {
+    …
+}
+
+IntUnaryOperator inc = x -> x + 1;
+
+</pre></td>
+<td><pre lang=java>
+int    someInt;
+String myString;
+char   aChar;
+long   sixtyfourFlags;
+
+if( isFlagSet( GO ) ) {
+    …
+}
+
+IntUnaryOperator inc = x->x + 1;
+
+</pre></td>
+</tr>
+</table>
+
 
 ### Wrapping Lines
-TBD
+-	Source code and comments should generally not exceed 100 characters per line, including indentation.
+
+-	URLs or example commands should not be wrapped.
+
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+// Ok even though it might exceed max line width when indented.
+Error e = isTypeParam
+        ? Errors.InvalidRepeatableAnnotationNotApplicable(targetContainerType, on)
+        : Errors.InvalidRepeatableAnnotationNotApplicableInContext(targetContainerType));
+String pretty = Stream.of(args)
+                      .map(Argument::prettyPrint)
+                      .collectors(joining(", "));
+
+</pre></td>
+<td><pre lang=java>
+// Too strict interpretation of max line width. Readability suffers.
+Error e = isTypeParam
+        ? Errors.InvalidRepeatableAnnotationNotApplicable(
+                targetContainerType, on)
+        : Errors.InvalidRepeatableAnnotationNotApplicableInContext(
+                targetContainerType);
+// Should be wrapped even though it fits within the character limit
+String pretty = Stream.of(args).map(Argument::prettyPrint).collectors(joining(", "));
+
+</pre></td>
+</tr>
+</table>
+
+
+-	There should be at most 1 statement per line.
+
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+i += j;
+j += k;
+if (condition) {
+    return expression;
+}
+
+</pre></td>
+<td><pre lang=java>
+i += j; j += k;
+if (condition) { return expression; }
+
+</pre></td>
+</tr>
+</table>
 
 ### Wrapping Class Declarations
-TBD
+-	A class header should not be wrapped unless it approaches the maximum column limit.
+
+-	If it does, it may be wrapped before extends and/or implements keywords.
+
+-	Declarations of type parameters may, if necessary, be wrapped the same way as method arguments
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+public class MyGenericClass<T, S>
+        extends HashMap<T, S>
+        implements Comparable<T> {
+    …
+}
+public class AnotherClass<K, R> implements Collector<T extends K,
+                                                     Set<? extends R>,
+                                                     List<R>> {
+    …
+}
+
+</pre></td>
+<td><pre lang=java>
+public class MyGenericClass<T> implements Comparable<T>,
+        Predicate<T> {
+    …
+}
+
+</pre></td>
+</tr>
+</table>
 
 ### Wrapping Method Declarations and Expressions
 TBD
 
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+
+</pre></td>
+<td><pre lang=java>
+
+</pre></td>
+</tr>
+</table>
+
 ### Variable Declarations and Annotations
 TBD
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+
+</pre></td>
+<td><pre lang=java>
+
+</pre></td>
+</tr>
+</table>
 
 ### Parentheses
 TBD
 
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+
+</pre></td>
+<td><pre lang=java>
+
+</pre></td>
+</tr>
+</table>
+
 ### Literals
 TBD
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+
+</pre></td>
+<td><pre lang=java>
+
+</pre></td>
+</tr>
+</table>
 
 ### Javadoc
 TBD
 
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+
+</pre></td>
+<td><pre lang=java>
+
+</pre></td>
+</tr>
+</table>
 
 # Naming
 
@@ -173,4 +400,6 @@ TBD
 
 ### Constants 
 TBD
+
+
 
