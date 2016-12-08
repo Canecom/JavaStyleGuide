@@ -308,7 +308,7 @@ public class MyGenericClass<T> implements Comparable<T>,
 </table>
 
 ### Wrapping Method Declarations and Expressions
-Method declarations can be formatted by listing the arguments vertically
+- Method declarations can be formatted by listing the arguments vertically
 
 <table>
 <tr><th>SFW</th><th>NSFW</th></tr>
@@ -323,7 +323,6 @@ int someMethod(String aString,
                double aDouble) {
     …
 }
-
 </pre></td>
 <td><pre lang=java>
 // If aligning the parameters vertically, don't put two
@@ -336,6 +335,44 @@ int someMethod(String aString,
                double aDouble) {
     …
 }
+</pre></td>
+</tr>
+</table>
+
+	-	If a expression line approaches the maximum character limit, always consider breaking it down into multiple statements / expressions instead of wrapping the line.
+-	Break expression  before operators.
+-	Break expression before the . in chained method calls.
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+methodCall(a * simple - formula,
+           some + complex - formula * spanning
+                        + multiple - lines * may
+                        + look - as * follows); 
+
+popupMsg("Inbox notification: You have "
+        + newMsgs + " new messages");
+
+
+persons.stream()
+       .map(Person::getName)
+       .forEach(System.out::println);
+
+</pre></td>
+<td><pre lang=java>
+// Arity unclear
+methodCall(a * simple - formula,
+           some + complex - formula * spanning +
+           multiple - lines * should + not *
+           look - as * follows);
+// Looks like two arguments
+popupMsg("Inbox notification: You have " +
+         newMsgs + " new messages");
+persons.stream().
+        map(Person::getName).
+        forEach(System.out::println);
 
 </pre></td>
 </tr>
