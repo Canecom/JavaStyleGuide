@@ -55,7 +55,6 @@
 -   native
 -   strictfp
 
-
 ### Braces
 -   opening braces should be put on the end of the line and should followed by one empty line
 
@@ -156,7 +155,6 @@ switch (var) {
         throw new IllegalArgumentException();
 }
 </pre></td>
-
 <td><pre lang=java>
 switch (var) {
 case TWO:
@@ -199,8 +197,7 @@ if (isFlagSet(GO)) {
     …
 }
 
-IntUnaryOperator inc = x -> x + 1;
-
+IntUnaryOperator inc = x -&gt; x + 1;
 </pre></td>
 <td><pre lang=java>
 int    someInt;
@@ -212,12 +209,10 @@ if( isFlagSet( GO ) ) {
     …
 }
 
-IntUnaryOperator inc = x->x + 1;
-
+IntUnaryOperator inc = x-&gt;x + 1;
 </pre></td>
 </tr>
 </table>
-
 
 ### Wrapping Lines
 -	Source code and comments should generally not exceed 100 characters per line, including indentation.
@@ -235,7 +230,6 @@ Error e = isTypeParam
 String pretty = Stream.of(args)
                       .map(Argument::prettyPrint)
                       .collectors(joining(", "));
-
 </pre></td>
 <tr><th>NSFW</th></tr>
 <td><pre lang=java>
@@ -358,7 +352,6 @@ popupMsg("Inbox notification: You have "
 persons.stream()
        .map(Person::getName)
        .forEach(System.out::println);
-
 </pre></td>
 <td><pre lang=java>
 // Arity unclear
