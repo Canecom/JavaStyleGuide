@@ -340,7 +340,9 @@ int someMethod(String aString,
 </table>
 
 -	If a expression line approaches the maximum character limit, always consider breaking it down into multiple statements / expressions instead of wrapping the line.
+
 -	Break expression  before operators.
+
 -	Break expression before the . in chained method calls.
 
 <table>
@@ -379,79 +381,275 @@ persons.stream().
 </table>
 
 ### Variable Declarations and Annotations
-TBD
+-	One variable per declaration (and at most one declaration per line)
+
+-	Square brackets of arrays should be at the type (String[] args) and not on the variable (String args[]).
 
 <table>
 <tr><th>SFW</th><th>NSFW</th></tr>
 <tr>
 <td><pre lang=java>
-
+public int var1;
+public int var 2;
+public String [] array;
 </pre></td>
 <td><pre lang=java>
+public int var1, var 2;
+public String array [];
+</pre></td>
+</tr>
+</table>
 
+-	Declaration annotations should be put on a separate line from the declaration being annotated.
+
+-	Few/short annotations annotating a single-line method may however be put on the same line as the method if it improves readability.
+
+-	Either all annotations should be put on the same line or each annotation should be put on a separate line.
+
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+@Deprecated
+@Override
+public void foo() {
+    …
+}
+
+addListener(new Listener() {
+ 
+    // Ignored events
+    @Override public void event1() { }
+    @Override public void event2() { }
+    @Override public void event3() { }
+ 
+    // Important event
+    @Override
+    public void event4() {
+        …
+    }
+});
+</pre></td>
+<td><pre lang=java>
+@Override @Deprecated public void foo() {
+    …
+}
+
+@Override @Deprecated
+@SafeVarargs
+public void foo() {
+    …
+}
 </pre></td>
 </tr>
 </table>
 
 ### Parentheses
-TBD
+-	Redundant grouping parentheses (i.e. parentheses that does not affect evaluation) may be used if they improve readability.
+
+-	Redundant grouping parentheses should typically be left out in shorter expressions involving common operators but included in longer expressions or expressions involving operators whose precedence and associativity is unclear without parentheses. Ternary expressions with non-trivial conditions belong to the latter.
+
+-	The entire expression following a return keyword must not be surrounded by parentheses.
 
 <table>
 <tr><th>SFW</th><th>NSFW</th></tr>
 <tr>
 <td><pre lang=java>
-
+return flag ? "yes" : "no";
+String cmp = (flag1 != flag2) ? "not equal" : "equal";
 </pre></td>
 <td><pre lang=java>
-
+return (flag ? "yes" : "no");
 </pre></td>
 </tr>
 </table>
 
 ### Literals
-TBD
+-	long literals should use the upper case letter L suffix.
+
+-	Hexadecimal literals should use upper case letters A-F.
+
+-	All other numerical prefixes, infixes, and suffixes should use lowercase letters
 
 <table>
 <tr><th>SFW</th><th>NSFW</th></tr>
 <tr>
 <td><pre lang=java>
-
+long l = 5432L;
+int i = 0x123 + 0xABC;
+byte b = 0b1010;
+float f1 = 1 / 5432f;
+float f2 = 0.123e4f;
+double d1 = 1 / 5432d;  // or 1 / 5432.0
+double d2 = 0x1.3p2;
 </pre></td>
 <td><pre lang=java>
-
+long l = 5432l;
+int i = 0X123 + 0xabc;
+byte b = 0B1010;
+float f1 = 1 / 5432F;
+float f2 = 0.123E4f;
+double d1 = 1 / 5432D;
+double d2 = 0x1.3P2;
 </pre></td>
 </tr>
 </table>
 
 ### Javadoc
-TBD
+-	Start longer comments with a short summarizing sentence since Javadoc includes this in the method summary table.
+
+-	Prefer inline tags (such as {@code …} and {@link …} etc) over corresponding HTML tags (<code>…</code>, <a href="…">…</a> etc).
+
+-	Use <p> to separate paragraphs (closing </p> tags are not needed and should not be used)
+
 
 <table>
 <tr><th>SFW</th><th>NSFW</th></tr>
 <tr>
 <td><pre lang=java>
+/** A short javadoc comment */
 
+/**
+ * …
+ *
+ * <blockquote>{@code
+ *     List<String> names;
+ * }</blockquote>
+ */
 </pre></td>
 <td><pre lang=java>
+/** put on single line instead
+ */
 
-</pre></td>
+/**
+ * The <String> below may interfere with the HTML!
+ *
+ * <blockquote><pre>
+ *     List<String> names;
+ * </pre></blockquote>
+ *
+ */
+ </pre></td>
 </tr>
 </table>
 
 # Naming
 
 ### Package names
-TBD
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+com.canecom.network
+</pre></td>
+<td><pre lang=java>
+com.canecom.Network
+com.Canecom.network
+com.canecom._network
+ </pre></td>
+</tr>
+</table>
 
 ### Class, Interface and Enum
-TBD
+-	Class and enum names should typically be nouns.
+
+-	Interface names should typically be nouns or adjectives ending with …able.
+
+-	Use mixed case with the first letter in each word in upper case.
+
+-	Use whole words and avoid using abbreviations unless the abbreviation is more widely used than the long form.
+
+-	Format an abbreviation as a word if the it is part of a longer class name.
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+class EmptyCell {
+}
+interface Expandable {
+}
+class XmlParser {
+}
+</pre></td>
+<td><pre lang=java>
+class Empty {
+}
+
+
+// Abbreviation should be formatted as 'Xml'
+class XMLParser {
+}
+ </pre></td>
+</tr>
+</table>
 
 ### Method name
-TBD 
+-	Method names should typically be verbs or other descriptions of actions.
+
+-	Use mixed case with the first letter in lower case.
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+public void expand() {
+    …
+}
+
+public boolean isExpanding() {
+    …
+}
+public State getState() {
+    …
+}
+</pre></td>
+<td><pre lang=java>
+public boolean expanding() {
+    …
+}
+public State GetState() {
+    …
+}
+public int get_index() {
+    …
+}
+ </pre></td>
+</tr>
+</table>
 
 ### Variables
-TBD
+-	names should be in mixed case with the first letter in lower case, except static not constant variables should be started with s
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+int currentIndex;
+boolean dataAvailable;
+</pre></td>
+<td><pre lang=java>
+int current_index;
+boolean DataAvailable;
+ </pre></td>
+</tr>
+</table>
 
 ### Constants 
-TBD
+
+<table>
+<tr><th>SFW</th><th>NSFW</th></tr>
+<tr>
+<td><pre lang=java>
+public static final int BUFFER_SIZE = 1024;
+enum ApplicationMode { RUNNING, PAUSED, TERMINATED }
+</pre></td>
+<td><pre lang=java>
+public final List<String> CURRENT_WORDS = new ArrayList<>();
+enum ApplicationMode { Running, Paused, Terminated }
+ </pre></td>
+</tr>
+</table>
+
 
