@@ -643,5 +643,6 @@ enum ApplicationMode { Running, Paused, Terminated }
 </table>
 
 # Import
-TBD
+These style guide can be imported into Android Studio. Open "Settings", then select "Editor / Code Style / Java" choose "Manage / Import...", don't forget to hit apply in the end. With CTRL + ALT + L you can format your Class or the hole project.
 
+<img alt="Canecom" src="Images/import.jpg" width=80% />
