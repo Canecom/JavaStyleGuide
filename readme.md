@@ -127,13 +127,12 @@ for (int[] row : matrix) {
 }
 
 // Not a trivial method, more blocks
-public boolean getResult() { int value = getValue(); return value < 0 ? 0 : value; }
+public boolean getResult() { int value = getValue(); return value &lt; 0 ? 0 : value; }
 
-for (int i = 0; i < size; i++) { sum += data[i]; }
+for (int i = 0; i &lt; size; i++) { sum += data[i]; }
 </pre></td>
 </tr>
 </table>
-
 
 ### WhiteSpaces
 -	Use 4 spaces for tabs.
@@ -253,9 +252,7 @@ String pretty = Stream.of(args).map(Argument::prettyPrint).collectors(joining(",
 </tr>
 </table>
 
-
 -	There should be at most 1 statement per line.
-
 
 <table>
 <tr><th>SFW</th><th>NSFW</th></tr>
@@ -287,20 +284,20 @@ if (condition) { return expression; }
 <tr><th>SFW</th><th>NSFW</th></tr>
 <tr>
 <td><pre lang=java>
-public class MyGenericClass<T, S>
-        extends HashMap<T, S>
-        implements Comparable<T> {
+public class MyGenericClass&lt;T, S&gt;
+        extends HashMap&lt;T, S&gt;
+        implements Comparable&lt;T&gt; {
     …
 }
-public class AnotherClass<K, R> implements Collector<T extends K,
-                                                     Set<? extends R>,
-                                                     List<R>> {
+public class AnotherClass&lt;K, R&gt; implements Collector&lt;T extends K,
+                                                     Set&lt;? extends R&gt;,
+                                                     List&lt;R&gt;&gt; {
     …
 }
 </pre></td>
 <td><pre lang=java>
-public class MyGenericClass<T> implements Comparable<T>,
-        Predicate<T> {
+public class MyGenericClass&lt;T&gt; implements Comparable&lt;T&gt;,
+        Predicate&lt;T&gt; {
     …
 }
 </pre></td>
@@ -315,11 +312,11 @@ public class MyGenericClass<T> implements Comparable<T>,
 <tr>
 <td><pre lang=java>
 int someMethod(String aString,
-               List<Integer> aList,
-               Map<String, String> aMap,
+               List&lt;Integer&gt; aList,
+               Map&lt;String, String&gt; aMap,
                int anInt,
                long aLong,
-               Set<Number> aSet,
+               Set&lt;Number&gt; aSet,
                double aDouble) {
     …
 }
@@ -328,10 +325,10 @@ int someMethod(String aString,
 // If aligning the parameters vertically, don't put two
 // parameters on one line
 int someMethod(String aString,
-               List<Integer> aList,
-               Map<String, String> aMap,
+               List&lt;Integer&gt; aList,
+               Map&lt;String, String&gt; aMap,
                int anInt, long aLong,
-               Set<Number> aSet,
+               Set&lt;Number&gt; aSet,
                double aDouble) {
     …
 }
@@ -499,10 +496,9 @@ double d2 = 0x1.3P2;
 ### Javadoc
 -	Start longer comments with a short summarizing sentence since Javadoc includes this in the method summary table.
 
--	Prefer inline tags (such as {@code …} and {@link …} etc) over corresponding HTML tags (<code>…</code>, <a href="…">…</a> etc).
+-	Prefer inline tags (such as {@code …} and {@link …} etc) over corresponding HTML tags (&lt;code&gt;…&lt;/code&gt;, &lt;a href="…"&gt;…&lt;/a&gt; etc).
 
--	Use <p> to separate paragraphs (closing </p> tags are not needed and should not be used)
-
+-	Use &lt;p&gt; to separate paragraphs (closing &lt;/p&gt; tags are not needed and should not be used)
 
 <table>
 <tr><th>SFW</th><th>NSFW</th></tr>
@@ -513,9 +509,9 @@ double d2 = 0x1.3P2;
 /**
  * …
  *
- * <blockquote>{@code
- *     List<String> names;
- * }</blockquote>
+ * &lt;blockquote&gt;{@code
+ *     List&lt;String&gt; names;
+ * }&lt;/blockquote&gt;
  */
 </pre></td>
 <td><pre lang=java>
@@ -523,11 +519,11 @@ double d2 = 0x1.3P2;
  */
 
 /**
- * The <String> below may interfere with the HTML!
+ * The &lt;String&gt; below may interfere with the HTML!
  *
- * <blockquote><pre>
- *     List<String> names;
- * </pre></blockquote>
+ * &lt;blockquote&gt;&lt;pre&gt;
+ *     List&lt;String&gt; names;
+ * &lt;/pre&gt;&lt;/blockquote&gt;
  *
  */
  </pre></td>
@@ -646,7 +642,7 @@ public static final int BUFFER_SIZE = 1024;
 enum ApplicationMode { RUNNING, PAUSED, TERMINATED }
 </pre></td>
 <td><pre lang=java>
-public final List<String> CURRENT_WORDS = new ArrayList<>();
+public final List&lt;String&gt; CURRENT_WORDS = new ArrayList&lt;&gt;();
 enum ApplicationMode { Running, Paused, Terminated }
  </pre></td>
 </tr>
