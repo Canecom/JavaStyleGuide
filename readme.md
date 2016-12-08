@@ -225,9 +225,8 @@ IntUnaryOperator inc = x->x + 1;
 
 -	URLs or example commands should not be wrapped.
 
-
 <table>
-<tr><th>SFW</th><th>NSFW</th></tr>
+<tr><th>SFW</th></tr>
 <tr>
 <td><pre lang=java>
 // Ok even though it might exceed max line width when indented.
@@ -239,6 +238,7 @@ String pretty = Stream.of(args)
                       .collectors(joining(", "));
 
 </pre></td>
+<tr><th>NSFW</th></tr>
 <td><pre lang=java>
 // Too strict interpretation of max line width. Readability suffers.
 Error e = isTypeParam
@@ -339,7 +339,7 @@ int someMethod(String aString,
 </tr>
 </table>
 
-	-	If a expression line approaches the maximum character limit, always consider breaking it down into multiple statements / expressions instead of wrapping the line.
+-	If a expression line approaches the maximum character limit, always consider breaking it down into multiple statements / expressions instead of wrapping the line.
 -	Break expression  before operators.
 -	Break expression before the . in chained method calls.
 
